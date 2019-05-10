@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let weather = WeatherGetter()
+        weather.getWeather(city: "Sacramento")
+       
     }
 
 
