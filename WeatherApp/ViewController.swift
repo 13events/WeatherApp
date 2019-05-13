@@ -8,13 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WeatherGetterDelegate{
+    func didGetCurrentConditions(currentConditions: CurrentConditions) {
+        print(currentConditions)
+    }
+    
+    func didNotGetCurrentConditions(error: Error) {
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let weather = WeatherGetter()
-        weather.getWeather(city: "Sacramento")
+        let weather = WeatherGetter(delegate:self)
+        weather.getCurrentConditionsByCity(city: "Sacramento")
        
     }
 

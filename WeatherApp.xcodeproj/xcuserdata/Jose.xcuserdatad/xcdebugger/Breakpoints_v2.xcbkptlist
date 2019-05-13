@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NetworkServices/WeatherGetter.swift"
-            timestampString = "578877542.810064"
+            timestampString = "579381028.548412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "getWeather(city:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "getWeather(weatherRequestURL:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
