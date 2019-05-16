@@ -22,6 +22,7 @@ class ViewController: UIViewController, WeatherGetterDelegate{
     @IBOutlet weak var pressureLabel: UILabel!
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var sunsetLabel: UILabel!
+    @IBOutlet weak var cloudCoverLabel: UILabel!
     
     //degree symbol
     let FAHRENHEIT = "°F"
@@ -54,6 +55,8 @@ class ViewController: UIViewController, WeatherGetterDelegate{
             self.pressureLabel.text = "\(String(currentConditions.currentPressure))hPa"
             self.sunriseLabel.text = "\(String(currentConditions.sunrise)) AM"
             self.sunsetLabel.text = "\(String(currentConditions.sunset)) PM"
+            self.weatherConditionLabel.text = currentConditions.weatherDescription
+            self.cloudCoverLabel.text = "\(currentConditions.cloudCover)%"
         }
         
     }
