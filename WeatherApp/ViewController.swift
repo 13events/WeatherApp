@@ -91,6 +91,8 @@ class ViewController: UIViewController, WeatherGetterDelegate, UITextFieldDelega
             self.present(alert, animated: true, completion: nil)
         }
        
+        //for debugging
+        print(error)
     }
     
     //Mark: UITextFieldDelegate Methods
