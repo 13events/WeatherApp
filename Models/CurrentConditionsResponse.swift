@@ -35,7 +35,7 @@ struct CurrentConditionsResponse: Decodable{
     
     struct Wind: Decodable {
         let speed: Float
-        let deg: Int?
+        let deg: Float?
     }
     
     struct Clouds: Decodable{

@@ -47,7 +47,7 @@ struct CurrentConditions {
         self.maxTemp = currentConditionsResponse.main.temp_max
         self.visibility = currentConditionsResponse.visibility
         self.windSpeed = currentConditionsResponse.wind.speed
-        self.windDirection = currentConditionsResponse.wind.deg
+        self.windDirection = Int(currentConditionsResponse.wind.deg!)
         self.sunrise = currentConditionsResponse.sys.sunrise
         self.sunset = currentConditionsResponse.sys.sunset
         self.weatherDescription = "\(currentConditionsResponse.weather[0].main), \(currentConditionsResponse.weather[0].description)"
