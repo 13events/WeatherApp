@@ -13,10 +13,12 @@ struct CurrentConditions {
     let cityId: Int
     let country: String
     private let currentTemp: Float
+    let weatherDescription: String
     let currentPressure: Int
     let currentHumidity: Int
     private let minTemp: Float
     private let maxTemp: Float
+    let cloudCover: Int
     let visibility: Int
     let windSpeed: Float
     let windDirection: Int?
@@ -48,5 +50,7 @@ struct CurrentConditions {
         self.windDirection = currentConditionsResponse.wind.deg
         self.sunrise = currentConditionsResponse.sys.sunrise
         self.sunset = currentConditionsResponse.sys.sunset
+        self.weatherDescription = "\(currentConditionsResponse.weather[0].main), \(currentConditionsResponse.weather[0].description)"
+        self.cloudCover = currentConditionsResponse.clouds.all
     }
 }
