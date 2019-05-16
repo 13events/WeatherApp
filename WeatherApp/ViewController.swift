@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, WeatherGetterDelegate{
     
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -22,6 +23,8 @@ class ViewController: UIViewController, WeatherGetterDelegate{
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var sunsetLabel: UILabel!
     
+    //degree symbol
+    let FAHRENHEIT = "°F"
     
     @IBOutlet weak var citySearchTextField: UITextField!
     
@@ -30,7 +33,7 @@ class ViewController: UIViewController, WeatherGetterDelegate{
         super.viewDidLoad()
         
         let weather = WeatherGetter(delegate:self)
-        weather.getCurrentConditionsByCity(city: "Sacramento")
+        weather.getCurrentConditionsByCity(city: "Citrus+heights")
        
     }
     
@@ -40,7 +43,19 @@ class ViewController: UIViewController, WeatherGetterDelegate{
     
     //Mark: WeatherGetterDelegate Methods
     func didGetCurrentConditions(currentConditions: CurrentConditions) {
-        print(currentConditions)
+        
+        DispatchQueue.main.async {
+            self.cityNameLabel.text = currentConditions.name
+            self.currentTemperatureLabel.text  = "\(String(currentConditions.currentTempFahrenheit)) \(self.FAHRENHEIT)"
+            self.lowTemperatureLabel.text = "\(String(currentConditions.minTempFahrenheit)) \(self.FAHRENHEIT)"
+            self.windSpeedLabel.text = "\(String(currentConditions.windSpeed)) m/s"
+            self.visibilityLabel.text = "\(String(currentConditions.visibility)) meters"
+            self.humidityLabel.text = "\(String(currentConditions.currentHumidity))%"
+            self.pressureLabel.text = "\(String(currentConditions.currentPressure))hPa"
+            self.sunriseLabel.text = "\(String(currentConditions.sunrise)) AM"
+            self.sunsetLabel.text = "\(String(currentConditions.sunset)) PM"
+        }
+        
     }
     
     func didNotGetCurrentConditions(error: Error) {
